@@ -64,10 +64,7 @@ const Home = () => {
           <Link to ="/contact-us">
             <Button className="ghost">Contact</Button>
           </Link>
-          <Link to="/learn-more">
-            <Button className="ghost">Learn More</Button>
-          </Link>
-           
+         
            {user ? (
           <>
             <span className="user-email">{user.email}</span>
@@ -98,7 +95,7 @@ const Home = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
         >
-          <source src="" type="video/mp4" />
+          <source src="D:\React Websites\mikraam\src\mainvideo.mov" />
         </motion.video>
 
         <motion.div
@@ -147,6 +144,14 @@ const Home = () => {
       <section className="section" data-aos="fade-up">
         <h3>Our Store</h3>
         <p>Discover a wide variety of AI features to meet your needs—from short rides to cross-country rides all in one place.</p>
+			<Card className="card" data-aos="zoom-in" data-aos-delay="300">
+            <CardContent>
+              <h3>SKOPIA</h3>
+              <p>Introducing SKOPIA, Our Newest Protoype which has features like Collision Detection, Dynamic Lane Detection and Traffic Level Scoring</p>
+            </CardContent>
+          </Card>
+		
+			
       </section>
 
       <section className="section" data-aos="fade-up">
