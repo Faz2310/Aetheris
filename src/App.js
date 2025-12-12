@@ -144,6 +144,15 @@ const Home = () => {
       <section className="section" data-aos="fade-up">
         <h3>Our Store</h3>
         <p>Discover a wide variety of AI features to meet your needs—from short rides to cross-country rides all in one place.</p>
+		<Card className="card" data-aos="zoom-in" data-aos-delay="300">
+            <CardContent>
+              <h3>SKOPIA</h3>
+              <p>A One-of a Kind prototype  with features like Collision detection, Dynamic Lane Detection and Traffic Level Scoring.
+				It uses High-Level Camera Sensing To Make Your Ride Easier and Safer.
+			</p>
+            </CardContent>
+        </Card>
+			
       </section>
 
       <section className="section" data-aos="fade-up">
