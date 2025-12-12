@@ -158,6 +158,13 @@ const Home = () => {
       <section className="section" data-aos="fade-up">
         <h3>Membership Plans</h3>
         <p>Enjoy exclusive benefits, discounted rates, and personalized services with AETHERIS® memberships.</p>
+		<Card className="card" data-aos="zoom-in" data-aos-delay="300">
+            <CardContent>
+              <h3>COMING SOON...</h3>
+              <p>LOOK FORWARD TO IT
+			</p>
+            </CardContent>
+        </Card>
       </section>
 
       <footer className="footer">
