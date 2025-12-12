@@ -64,7 +64,7 @@ const Home = () => {
           <Link to ="/contact-us">
             <Button className="ghost">Contact</Button>
           </Link>
-         
+           
            {user ? (
           <>
             <span className="user-email">{user.email}</span>
@@ -95,7 +95,7 @@ const Home = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
         >
-          <source src="D:\React Websites\mikraam\src\mainvideo.mov" />
+          <source src="/mainvideo.mp4" type="video/mp4" />
         </motion.video>
 
         <motion.div
@@ -144,14 +144,6 @@ const Home = () => {
       <section className="section" data-aos="fade-up">
         <h3>Our Store</h3>
         <p>Discover a wide variety of AI features to meet your needs—from short rides to cross-country rides all in one place.</p>
-			<Card className="card" data-aos="zoom-in" data-aos-delay="300">
-            <CardContent>
-              <h3>SKOPIA</h3>
-              <p>Introducing SKOPIA, Our Newest Protoype which has features like Collision Detection, Dynamic Lane Detection and Traffic Level Scoring</p>
-            </CardContent>
-          </Card>
-		
-			
       </section>
 
       <section className="section" data-aos="fade-up">
@@ -162,81 +154,6 @@ const Home = () => {
       <footer className="footer">
         © {new Date().getFullYear()} AETHERIS® All rights reserved.
       </footer>
-    </div>
-  );
-};
-
-const LearnMore = () => {
-
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-    return () => unsubscribe();
-  }, []);
-
-  const handleLogout = async () => {
-    try {
-      await signOut(auth);
-    } catch (error) {
-      console.error("Error signing out: ", error);
-    }
-  };
-
-  return (
-
-    <div className="app-background">
-      <header className="app-header">
-        <div className="logo-wrapper">
-          <img src="/logo-Photoroom.png" alt = "aetheris "className="logo-image" />
-          <h1 className="logo-text">AETHERIS®</h1>
-        </div>
-         <nav className="nav-links">
-          <Link to ="/home">
-            <Button className="ghost">Home</Button>
-          </Link>
-          <Button className="ghost">Solutions</Button>
-          <Button className="ghost">About</Button>
-          <Link to ="/contact-us">
-            <Button className="ghost">Contact</Button>
-          </Link>
-          <Link to="/learn-more">
-            <Button className="ghost">Learn More</Button>
-          </Link>
-           
-           {user ? (
-          <>
-            <span className="user-email">{user.email}</span>
-            <Button className="ghost" onClick={handleLogout}>Logout</Button>
-          </>
-        ) : (
-          <>
-            <Link to="/register">
-              <Button className="ghost">Register</Button>
-            </Link>
-            <Link to="/login">
-              <Button className="ghost">Login</Button>
-            </Link>
-          </>
-        )}
-        </nav>
-      </header>
-
-
-    <div className="learn-more-wrapper" data-aos="fade-up">
-      
-      
-      <h1>Learn More</h1>
-      <p>
-        AETHERIS® is transforming road travel with modern technology, flexible options, and unmatched personalization.
-        Explore how our services adapt to your travel needs and bring global connectivity with comfort and style using AI.
-      </p>
-      <Link to="/home">
-        <Button className="default">Back to Home</Button>
-      </Link>
-    </div>
     </div>
   );
 };
@@ -277,10 +194,7 @@ const Services = () =>{
           <Link to ="/contact-us">
             <Button className="ghost">Contact</Button>
           </Link>
-          <Link to="/learn-more">
-            <Button className="ghost">Learn More</Button>
-          </Link>
-           
+          
            {user ? (
           <>
             <span className="user-email">{user.email}</span>
@@ -402,9 +316,6 @@ const ContactUs = () =>{
           <Button className="ghost">About</Button>
           <Link to ="/contact-us">
             <Button className="ghost">Contact</Button>
-          </Link>
-          <Link to="/learn-more">
-            <Button className="ghost">Learn More</Button>
           </Link>
            
            {user ? (
@@ -559,7 +470,6 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/learn-more" element={<LearnMore />} />
         <Route path = "/contact-us" element={<ContactUs/>}/>
         <Route path = "/services-page" element={<Services/>} />
         <Route path="/login" element={<Login />} />
