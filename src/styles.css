@@ -534,23 +534,3 @@ button.ghost:hover {
     opacity: 0.75;
   }
 }
-
-/* Desktop nav fix */
-@media (min-width: 769px) {
-  .hamburger {
-    display: none !important; /* always hide desktop */
-  }
-
-  .nav-links {
-    position: static !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-    transform: none !important;
-    flex-direction: row;
-    gap: 1.5rem;
-  }
-
-  .app-header {
-    flex-direction: row !important; /* keep header horizontal */
-  }
-}
