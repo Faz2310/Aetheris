@@ -484,21 +484,12 @@ button.ghost:hover {
 
 /* Mobile */
 /* ===== NAVBAR MOBILE FIX ===== */
-.app-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: row; /* KEEP HEADER ROW */
+    padding: 1rem;
+  }
 }
-
-.nav-links {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-}
-
 /* Hamburger hidden on desktop */
 .hamburger {
   display: none;
