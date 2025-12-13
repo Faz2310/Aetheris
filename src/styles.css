@@ -454,9 +454,56 @@ button.ghost:hover {
 }
 
 .back-button {
-  display: flex;
+  display: inline-flex; /* Changed from flex */
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto 0; /* Auto margins for horizontal centering */
+  max-width: 200px; /* Optional: limit width */
+  width: auto; /* Auto width based on content */
+}
+.contact-page .back-button {
   margin: 2rem auto 0;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.center-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(77, 77, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--wolf-accent);
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+button.loading {
+  position: relative;
+  color: transparent;
+}
+
+button.loading::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
 }
 
 /* Custom Scrollbar */
@@ -478,44 +525,90 @@ button.ghost:hover {
 }
 
 /* Desktop nav - always visible */
-.nav-links {
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-  position: static;
-  opacity: 1;
-  pointer-events: auto;
-  transform: none;
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  position: relative; /* Changed from absolute */
+  margin-left: auto; /* Push to the right */
 }
 
-/* ===== MOBILE ===== */
+.hamburger-line {
+  width: 100%;
+  height: 3px;
+  background: var(--wolf-text);
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Hamburger open state */
+.hamburger.open .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.hamburger.open .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ===== MOBILE HEADER LAYOUT ===== */
 @media (max-width: 768px) {
-  .hamburger {
-    display: block;
-    position: fixed; /* FIXED, not absolute */
-    top: 16px;       /* distance from top */
-    right: 16px;     /* distance from right */
-    z-index: 999;    /* make sure it’s above everything */
+  .app-header {
+    position: relative; /* Add this */
+    display: flex;
+    flex-direction: row; /* Keep horizontal layout */
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    min-height: 70px; /* Fixed height */
   }
 
-  .nav-links {
-    position: fixed; /* also fixed so it overlays content */
-    top: 56px;       /* just below header */
-    right: 16px;
-    background: rgba(12,12,12,0.96);
-    backdrop-filter: blur(12px);
-    border-radius: 14px;
-    padding: 10px;
-    width: 220px;
+  /* Show hamburger only on mobile */
+  .hamburger {
+    display: flex;
+  }
 
+  /* Logo should take available space */
+  .logo-wrapper {
+    flex: 1;
+  }
+
+  /* Navigation positioning */
+  .nav-links {
+    position: fixed;
+    top: 70px; /* Match header height */
+    right: 0;
+    left: 0;
+    background: rgba(14, 14, 18, 0.98);
+    backdrop-filter: blur(20px);
+    border-radius: 0;
+    border-top: 1px solid var(--wolf-border);
+    padding: 2rem;
+    width: 100%;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+    
     flex-direction: column;
     align-items: stretch;
+    gap: 1rem;
 
     opacity: 0;
     pointer-events: none;
-    transform: translateY(-10px);
-    transition: all 0.25s ease;
-    z-index: 998;
+    transform: translateY(-20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   }
 
   .nav-links.open {
@@ -524,18 +617,20 @@ button.ghost:hover {
     transform: translateY(0);
   }
 
-
-  /* Mobile buttons in nav */
+  /* Mobile button styles */
   .nav-links button {
-    font-size: 13px;
-    padding: 7px 10px;
     width: 100%;
+    padding: 1rem;
+    margin: 0;
+    text-align: center;
+    font-size: 1rem;
   }
 
   .user-email {
-    font-size: 12px;
     text-align: center;
-    margin-bottom: 6px;
-    opacity: 0.75;
+    padding: 1rem;
+    margin: 0;
+    border-bottom: 1px solid var(--wolf-border);
+    font-size: 1rem;
   }
 }
