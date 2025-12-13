@@ -78,6 +78,10 @@ const Home = () => {
             <Link to="/login">
               <Button className="ghost">Login</Button>
             </Link>
+			</Link>
+				<Link to="/about">
+		  		<Button className="ghost">About</Button>
+			</Link>
           </>
         )}
 
@@ -206,7 +210,10 @@ const Services = () =>{
             <Button className="ghost">Home</Button>
           </Link>
           <Button className="ghost">Solutions</Button>
-          <Button className="ghost">About</Button>
+          </Link>
+				<Link to="/about">
+		  		<Button className="ghost">About</Button>
+		  </Link>
           <Link to ="/contact-us">
             <Button className="ghost">Contact</Button>
           </Link>
@@ -224,6 +231,9 @@ const Services = () =>{
             <Link to="/login">
               <Button className="ghost">Login</Button>
             </Link>
+				<Link to="/about">
+		  		<Button className="ghost">About</Button>
+			</Link>
           </>
         )}
         </nav>
@@ -297,6 +307,111 @@ const Services = () =>{
   );
 }
 
+const About = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error("Error signing out: ", error);
+    }
+  };
+
+  return (
+    <div className="app-background">
+      {/* HEADER */}
+      <header className="app-header">
+        <div className="logo-wrapper">
+          <img src="/logo-Photoroom.png" alt="aetheris" className="logo-image" />
+          <h1 className="logo-text">AETHERIS®</h1>
+        </div>
+
+        <nav className="nav-links">
+          <Link to="/home"><Button className="ghost">Home</Button></Link>
+          <Link to="/services-page"><Button className="ghost">Services</Button></Link>
+          <Link to="/contact-us"><Button className="ghost">Contact</Button></Link>
+	  	  <Link to="/about"><Button className="ghost">About</Button></Link>
+
+          {user ? (
+            <>
+              <span className="user-email">{user.email}</span>
+              <Button className="ghost" onClick={handleLogout}>Logout</Button>
+            </>
+          ) : (
+            <>
+              <Link to="/register"><Button className="ghost">Register</Button></Link>
+              <Link to="/login"><Button className="ghost">Login</Button></Link>
+            </>
+          )}
+        </nav>
+      </header>
+
+      {/* ABOUT COMPANY */}
+      <section className="section" data-aos="fade-up">
+        <h2 align="center">About AETHERIS®</h2>
+
+        <Card className="card about-card" data-aos="zoom-in">
+          <CardContent>
+            <h3>Who We Are</h3>
+            <p>
+              AETHERIS® is an AI-driven mobility safety company focused on
+              redefining how people experience travel.
+              Our mission is to <b>Predict, Prevent, and Protect</b> —
+              using intelligent vision systems and real-time risk analysis.
+            </p>
+
+            <p>
+              We believe safety should be proactive, privacy-first, and
+              accessible to everyone — from daily commuters to government fleets.
+              Our technology works without heavy cloud dependency,
+              ensuring speed, reliability, and data sovereignty.
+            </p>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* CO-FOUNDERS */}
+      <section className="section" data-aos="fade-up">
+        <h2 align="center">Co-Founders</h2>
+
+        <div className="card-grid">
+          <Card className="card" data-aos="fade-right">
+            <CardContent>
+              <h3>Co-Founder & CEO</h3>
+              <p>
+                Visionary behind AETHERIS®, focused on AI innovation,
+                safety systems, and long-term product strategy.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="card" data-aos="fade-left">
+            <CardContent>
+              <h3>Co-Founder & CTO</h3>
+              <p>
+                Leads system architecture, AI models,
+                and engineering execution with a focus on scalability and privacy.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <footer className="footer">
+        © {new Date().getFullYear()} AETHERIS® All rights reserved.
+      </footer>
+    </div>
+  );
+};
+
 const ContactUs = () =>{
 
   const [user, setUser] = useState(null);
@@ -329,10 +444,14 @@ const ContactUs = () =>{
             <Button className="ghost">Home</Button>
           </Link>
           <Button className="ghost">Solutions</Button>
-          <Button className="ghost">About</Button>
+            </Link>
+				<Link to="/about">
+		  		<Button className="ghost">About</Button>
+			</Link>
           <Link to ="/contact-us">
             <Button className="ghost">Contact</Button>
           </Link>
+	
            
            {user ? (
           <>
@@ -347,6 +466,7 @@ const ContactUs = () =>{
             <Link to="/login">
               <Button className="ghost">Login</Button>
             </Link>
+
           </>
         )}
         </nav>
@@ -488,6 +608,7 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path = "/contact-us" element={<ContactUs/>}/>
         <Route path = "/services-page" element={<Services/>} />
+	  	<Route path = "/about" element={<About/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
