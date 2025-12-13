@@ -55,7 +55,7 @@ const Home = () => {
 
   return (
     <div className="app-background">
-      <Navbar user={user} onLogout={handleLogout} />
+     <Navbar user={user} onLogout={handleLogout} />
 
       <section className="video-section" data-aos="fade-up">
         <motion.video
