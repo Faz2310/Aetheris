@@ -60,7 +60,9 @@ const Home = () => {
         </div>
         <nav className="nav-links">
           <Button className="ghost">Solutions</Button>
-          <Button className="ghost">About</Button>
+			<Link to="/about">
+		  		<Button className="ghost">About</Button>
+			</Link>
           <Link to ="/contact-us">
             <Button className="ghost">Contact</Button>
           </Link>
@@ -77,10 +79,6 @@ const Home = () => {
             </Link>
             <Link to="/login">
               <Button className="ghost">Login</Button>
-            </Link>
-			</Link>
-				<Link to="/about">
-		  		<Button className="ghost">About</Button>
 			</Link>
           </>
         )}
@@ -210,8 +208,7 @@ const Services = () =>{
             <Button className="ghost">Home</Button>
           </Link>
           <Button className="ghost">Solutions</Button>
-          </Link>
-				<Link to="/about">
+			<Link to="/about">
 		  		<Button className="ghost">About</Button>
 		  </Link>
           <Link to ="/contact-us">
@@ -444,7 +441,6 @@ const ContactUs = () =>{
             <Button className="ghost">Home</Button>
           </Link>
           <Button className="ghost">Solutions</Button>
-            </Link>
 				<Link to="/about">
 		  		<Button className="ghost">About</Button>
 			</Link>
