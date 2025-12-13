@@ -455,7 +455,6 @@ button.ghost:hover {
 
 .back-button {
   display: flex;
-  justify-content: center;
   margin: 2rem auto 0;
   width: 100%;
 }
@@ -485,17 +484,11 @@ button.ghost:hover {
 
 /* Mobile */
 /* ===== NAVBAR MOBILE FIX ===== */
-.app-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-/* Desktop nav */
-.nav-links {
-  display: flex;
-  gap: 14px;
-  align-items: center;
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: row; /* KEEP HEADER ROW */
+    padding: 1rem;
+  }
 }
 
 /* Hamburger */
