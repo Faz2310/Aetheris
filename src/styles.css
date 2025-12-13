@@ -530,6 +530,32 @@ button.ghost:hover {
 }
 
 /* Mobile */
+/* ===== NAVBAR MOBILE FIX ===== */
+
+.app-header {
+  position: relative;
+  z-index: 100;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  position: absolute;
+  top: 18px;
+  right: 16px;
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 200; /* ALWAYS ABOVE MENU */
+}
+
+/* Desktop nav */
+.nav-links {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
   .hamburger {
     display: block;
@@ -537,21 +563,23 @@ button.ghost:hover {
 
   .nav-links {
     position: absolute;
-    top: 64px;
-    right: 16px;
-    background: rgba(15, 15, 15, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    padding: 12px;
-    width: 220px;
+    top: 60px;
+    right: 12px;
+    background: rgba(12, 12, 12, 0.95);
+    backdrop-filter: blur(12px);
+    border-radius: 14px;
+    padding: 10px;
+    width: 200px;
 
     flex-direction: column;
     align-items: stretch;
 
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-8px);
     pointer-events: none;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
+
+    z-index: 150; /* BELOW HAMBURGER */
   }
 
   .nav-links.open {
@@ -560,10 +588,10 @@ button.ghost:hover {
     pointer-events: auto;
   }
 
-  /* BUTTON SIZE FIX */
+  /* SMALLER BUTTONS */
   .nav-links button {
-    font-size: 14px;
-    padding: 8px 12px;
+    font-size: 13px;
+    padding: 7px 10px;
     width: 100%;
   }
 
@@ -571,6 +599,6 @@ button.ghost:hover {
     font-size: 12px;
     text-align: center;
     margin-bottom: 6px;
-    opacity: 0.8;
+    opacity: 0.75;
   }
 }
