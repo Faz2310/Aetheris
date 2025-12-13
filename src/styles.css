@@ -524,9 +524,9 @@ button.loading::after {
   background: var(--wolf-accent);
 }
 
-/* Desktop nav - always visible */
+/* ===== HAMBURGER - HIDDEN BY DEFAULT ===== */
 .hamburger {
-  display: none;
+  display: none; /* Hidden on all screens by default */
   flex-direction: column;
   justify-content: space-between;
   width: 30px;
@@ -536,8 +536,8 @@ button.loading::after {
   cursor: pointer;
   padding: 0;
   z-index: 1001;
-  position: relative; /* Changed from absolute */
-  margin-left: auto; /* Push to the right */
+  position: relative;
+  margin-left: auto;
 }
 
 .hamburger-line {
@@ -562,32 +562,34 @@ button.loading::after {
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* ===== MOBILE HEADER LAYOUT ===== */
+/* ===== DESKTOP NAV - ALWAYS VISIBLE ===== */
+.nav-links {
+  display: flex; /* Always flex on desktop */
+  gap: 1.5rem;
+  align-items: center;
+  position: static;
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+  background: transparent;
+  padding: 0;
+  width: auto;
+  height: auto;
+  overflow: visible;
+}
+
+/* ===== MOBILE BREAKPOINT ===== */
 @media (max-width: 768px) {
-  .app-header {
-    position: relative; /* Add this */
-    display: flex;
-    flex-direction: row; /* Keep horizontal layout */
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    min-height: 70px; /* Fixed height */
-  }
-
-  /* Show hamburger only on mobile */
-  .hamburger {
-    display: flex;
-  }
-
-  /* Logo should take available space */
-  .logo-wrapper {
-    flex: 1;
-  }
-
-  /* Navigation positioning */
+  /* Hide regular nav links container */
   .nav-links {
+    display: none; /* Hide on mobile initially */
+  }
+  
+  /* Show mobile menu when open */
+  .nav-links.open {
+    display: flex; /* Show when open */
     position: fixed;
-    top: 70px; /* Match header height */
+    top: 70px;
     right: 0;
     left: 0;
     background: rgba(14, 14, 18, 0.98);
@@ -602,34 +604,33 @@ button.loading::after {
     flex-direction: column;
     align-items: stretch;
     gap: 1rem;
-
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-20px);
+    
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 999;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   }
-
-  .nav-links.open {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
+  
+  /* Show hamburger on mobile */
+  .app-header .hamburger {
+    display: flex; /* Only show on mobile */
   }
-
+  
   /* Mobile button styles */
-  .nav-links button {
+  .nav-links.open button {
     width: 100%;
     padding: 1rem;
     margin: 0;
     text-align: center;
     font-size: 1rem;
   }
-
-  .user-email {
+  
+  .nav-links.open .user-email {
     text-align: center;
     padding: 1rem;
-    margin: 0;
+    margin: 0 0 1rem 0;
     border-bottom: 1px solid var(--wolf-border);
     font-size: 1rem;
   }
