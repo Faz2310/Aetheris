@@ -15,6 +15,7 @@ const Navbar = ({ user, onLogout }) => {
       <button
         className="menu-toggle"
         onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle menu"
       >
         ☰
       </button>
@@ -39,13 +40,22 @@ const Navbar = ({ user, onLogout }) => {
         {user ? (
           <>
             <span className="user-email">{user.email}</span>
-            <Button className="ghost" onClick={onLogout}>Logout</Button>
+            <Button
+              className="ghost"
+              onClick={() => {
+                setMenuOpen(false);
+                onLogout();
+              }}
+            >
+              Logout
+            </Button>
           </>
         ) : (
           <>
             <Link to="/login" onClick={() => setMenuOpen(false)}>
               <Button className="ghost">Login</Button>
             </Link>
+
             <Link to="/register" onClick={() => setMenuOpen(false)}>
               <Button className="ghost">Register</Button>
             </Link>
