@@ -477,13 +477,28 @@ button.ghost:hover {
   background: var(--wolf-accent);
 }
 /* ===== MOBILE ===== */
+.hamburger {
+  display: none; /* hidden on desktop */
+  font-size: 26px;
+  cursor: pointer;
+  color: white;
+  z-index: 200;
+  position: absolute;
+  top: 18px;
+  right: 16px;
+}
+
+/* Mobile only */
 @media (max-width: 768px) {
-  /* Hide desktop nav */
+  .hamburger {
+    display: block; /* show on mobile */
+  }
+
   .nav-links {
     position: absolute;
     top: 64px;
     right: 12px;
-    background: rgba(12, 12, 12, 0.96);
+    background: rgba(12,12,12,0.96);
     backdrop-filter: blur(12px);
     border-radius: 14px;
     padding: 10px;
@@ -505,15 +520,6 @@ button.ghost:hover {
     transform: translateY(0);
   }
 
-  /* Show hamburger only on mobile */
-  .hamburger {
-    display: block;
-    position: absolute;
-    top: 18px;
-    right: 16px;
-    z-index: 200;
-  }
-
   /* Smaller buttons */
   .nav-links button {
     font-size: 13px;
@@ -528,9 +534,11 @@ button.ghost:hover {
     opacity: 0.75;
   }
 }
+
+/* Desktop nav fix */
 @media (min-width: 769px) {
   .hamburger {
-    display: none !important;
+    display: none !important; /* always hide desktop */
   }
 
   .nav-links {
@@ -538,5 +546,11 @@ button.ghost:hover {
     opacity: 1 !important;
     pointer-events: auto !important;
     transform: none !important;
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .app-header {
+    flex-direction: row !important; /* keep header horizontal */
   }
 }
