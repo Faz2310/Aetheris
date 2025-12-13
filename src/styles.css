@@ -550,3 +550,15 @@ button.ghost:hover {
     opacity: 0.75;
   }
 }
+@media (min-width: 769px) {
+  .hamburger {
+    display: none !important;
+  }
+
+  .nav-links {
+    position: static !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: none !important;
+  }
+}
