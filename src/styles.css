@@ -476,14 +476,6 @@ button.ghost:hover {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--wolf-accent);
 }
-/* ===== MOBILE ===== */
-.hamburger {
-  display: none;
-  font-size: 26px;
-  cursor: pointer;
-  color: white;
-  z-index: 200;
-}
 
 /* Desktop nav - always visible */
 .nav-links {
