@@ -478,63 +478,24 @@ button.ghost:hover {
   background: var(--wolf-accent);
 }
 
-.menu-toggle {
-  display: none;
-  font-size: 26px;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
 
-/* MOBILE */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 70px;
-    right: 0;
-    background: rgba(0, 0, 0, 0.95);
-    flex-direction: column;
-    width: 100%;
-    display: none;
-    padding: 20px 0;
-    z-index: 999;
-  }
-
-  .nav-links.open {
-    display: flex;
-  }
-
-  .nav-links a {
-    margin: 10px 0;
-    text-align: center;
-  }
-}
-
-
-.hamburger {
-  display: none;
-  font-size: 26px;
-  cursor: pointer;
-}
 
 /* Default nav (desktop) */
+
+
+/* Mobile */
+/* ===== NAVBAR MOBILE FIX ===== */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Desktop nav */
 .nav-links {
   display: flex;
   gap: 14px;
   align-items: center;
-}
-
-/* Mobile */
-/* ===== NAVBAR MOBILE FIX ===== */
-
-.app-header {
-  position: relative;
-  z-index: 100;
 }
 
 /* Hamburger */
@@ -545,14 +506,7 @@ button.ghost:hover {
   right: 16px;
   font-size: 26px;
   cursor: pointer;
-  z-index: 200; /* ALWAYS ABOVE MENU */
-}
-
-/* Desktop nav */
-.nav-links {
-  display: flex;
-  gap: 14px;
-  align-items: center;
+  z-index: 200;
 }
 
 /* ===== MOBILE ===== */
@@ -565,7 +519,7 @@ button.ghost:hover {
     position: absolute;
     top: 60px;
     right: 12px;
-    background: rgba(12, 12, 12, 0.95);
+    background: rgba(12, 12, 12, 0.96);
     backdrop-filter: blur(12px);
     border-radius: 14px;
     padding: 10px;
@@ -579,7 +533,7 @@ button.ghost:hover {
     pointer-events: none;
     transition: all 0.25s ease;
 
-    z-index: 150; /* BELOW HAMBURGER */
+    z-index: 150;
   }
 
   .nav-links.open {
@@ -588,7 +542,7 @@ button.ghost:hover {
     pointer-events: auto;
   }
 
-  /* SMALLER BUTTONS */
+  /* Smaller buttons */
   .nav-links button {
     font-size: 13px;
     padding: 7px 10px;
