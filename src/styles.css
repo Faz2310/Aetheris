@@ -476,7 +476,7 @@ button.ghost:hover {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--wolf-accent);
 }
-/
+
 /* Hamburger hidden on desktop */
 .hamburger {
   display: none;
