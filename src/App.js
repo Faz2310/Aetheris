@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+		import React, { useState,useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Link , useNavigate } from "react-router-dom";
 import { Button } from "./components/button";
 import { Card, CardContent } from "./components/card";
@@ -359,10 +359,15 @@ const About = () => {
           <CardContent>
             <h3>Who We Are</h3>
             <p>
-              AETHERIS® is an AI-driven mobility safety company focused on
-              redefining how people experience travel.
-              Our mission is to <b>Predict, Prevent, and Protect</b> —
-              using intelligent vision systems and real-time risk analysis.
+              AETHERIS® 
+						Predicting danger. Protecting lives.
+						Aetheris is an intelligent driving-assistant system designed to prevent accidents before they happen. Using advanced computer vision and predictive AI, Aetheris analyzes the road in real time—detecting lanes, tracking traffic, estimating vehicle speed, and forecasting collision points with high precision.
+						We’re building the next generation of road-safety technology for everyday drivers.
+            </p>
+			<p>
+			Our Mission
+						To make roads safer by giving drivers the power of prediction.
+						We believe that every driver deserves access to intelligent, affordable, and reliable safety technology—not just those who can afford high-end vehicles.
             </p>
 
             <p>
@@ -382,20 +387,21 @@ const About = () => {
         <div className="card-grid">
           <Card className="card" data-aos="fade-right">
             <CardContent>
-              <h3>Co-Founder & CEO</h3>
+		  	  <h3>Co-Founder</h3>
+              <h3>Syed Mikraam Rasheed</h3>
               <p>
                 Visionary behind AETHERIS®, focused on AI innovation,
-                safety systems, and long-term product strategy.
+                safety systems, and developing the products at every level.
               </p>
             </CardContent>
           </Card>
 
           <Card className="card" data-aos="fade-left">
             <CardContent>
-              <h3>Co-Founder & CTO</h3>
+              <h3>Co-Founder & Fullstack Developer</h3>
               <p>
                 Leads system architecture, AI models,
-                and engineering execution with a focus on scalability and privacy.
+                and engineering execution with a focus on PR and Online Presence of the Company.
               </p>
             </CardContent>
           </Card>
