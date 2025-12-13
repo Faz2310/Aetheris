@@ -476,20 +476,7 @@ button.ghost:hover {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--wolf-accent);
 }
-
-
-
-/* Default nav (desktop) */
-
-
-/* Mobile */
-/* ===== NAVBAR MOBILE FIX ===== */
-@media (max-width: 768px) {
-  .app-header {
-    flex-direction: row; /* KEEP HEADER ROW */
-    padding: 1rem;
-  }
-}
+/
 /* Hamburger hidden on desktop */
 .hamburger {
   display: none;
