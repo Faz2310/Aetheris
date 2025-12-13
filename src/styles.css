@@ -485,7 +485,7 @@ button.ghost:hover {
   z-index: 200;
 }
 
-/* Desktop nav */
+/* Desktop nav - always visible */
 .nav-links {
   display: flex;
   gap: 1.5rem;
@@ -496,12 +496,17 @@ button.ghost:hover {
   transform: none;
 }
 
-/* ===== Mobile ===== */
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
+  /* Show hamburger on mobile */
   .hamburger {
     display: block;
+    position: absolute;
+    top: 18px;
+    right: 16px;
   }
 
+  /* Mobile nav */
   .nav-links {
     position: absolute;
     top: 64px;
@@ -522,12 +527,14 @@ button.ghost:hover {
     z-index: 150;
   }
 
+  /* Open state */
   .nav-links.open {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
   }
 
+  /* Mobile buttons in nav */
   .nav-links button {
     font-size: 13px;
     padding: 7px 10px;
