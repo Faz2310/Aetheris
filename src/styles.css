@@ -476,15 +476,6 @@ button.ghost:hover {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--wolf-accent);
 }
-
-/* Hamburger hidden on desktop */
-.hamburger {
-  display: none;
-  font-size: 26px;
-  cursor: pointer;
-  color: white;
-}
-
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
   /* Hide desktop nav */
