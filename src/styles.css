@@ -477,23 +477,45 @@ button.ghost:hover {
   background: var(--wolf-accent);
 }
 /* ===== MOBILE ===== */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(14,14,18,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--wolf-border);
+  box-shadow: 0 2px 25px rgba(0,0,0,0.4);
+}
+
+/* Nav links - desktop default */
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* Hamburger button - hidden by default */
 .hamburger {
-  display: none; /* hidden on desktop */
+  display: none;
   font-size: 26px;
   cursor: pointer;
   color: white;
   z-index: 200;
-  position: absolute;
-  top: 18px;
-  right: 16px;
 }
 
-/* Mobile only */
+/* ===== Mobile Styles ===== */
 @media (max-width: 768px) {
+
+  /* Show hamburger */
   .hamburger {
-    display: block; /* show on mobile */
+    display: block;
   }
 
+  /* Nav links hidden initially */
   .nav-links {
     position: absolute;
     top: 64px;
@@ -514,13 +536,13 @@ button.ghost:hover {
     z-index: 150;
   }
 
+  /* Open state for mobile menu */
   .nav-links.open {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
   }
 
-  /* Smaller buttons */
   .nav-links button {
     font-size: 13px;
     padding: 7px 10px;
@@ -532,5 +554,25 @@ button.ghost:hover {
     text-align: center;
     margin-bottom: 6px;
     opacity: 0.75;
+  }
+}
+
+/* ===== Desktop Styles ===== */
+@media (min-width: 769px) {
+  .hamburger {
+    display: none; /* always hide desktop */
+  }
+
+  .nav-links {
+    position: static;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .app-header {
+    flex-direction: row; /* horizontal header */
   }
 }
