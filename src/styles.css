@@ -490,24 +490,23 @@ button.ghost:hover {
 
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
-  /* Show hamburger on mobile */
   .hamburger {
     display: block;
-    position: absolute;
-    top: 18px;
-    right: 16px;
+    position: fixed; /* FIXED, not absolute */
+    top: 16px;       /* distance from top */
+    right: 16px;     /* distance from right */
+    z-index: 999;    /* make sure it’s above everything */
   }
 
-  /* Mobile nav */
   .nav-links {
-    position: absolute;
-    top: 64px;
-    right: 12px;
+    position: fixed; /* also fixed so it overlays content */
+    top: 56px;       /* just below header */
+    right: 16px;
     background: rgba(12,12,12,0.96);
     backdrop-filter: blur(12px);
     border-radius: 14px;
     padding: 10px;
-    width: 200px;
+    width: 220px;
 
     flex-direction: column;
     align-items: stretch;
@@ -516,15 +515,15 @@ button.ghost:hover {
     pointer-events: none;
     transform: translateY(-10px);
     transition: all 0.25s ease;
-    z-index: 150;
+    z-index: 998;
   }
 
-  /* Open state */
   .nav-links.open {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
   }
+
 
   /* Mobile buttons in nav */
   .nav-links button {
