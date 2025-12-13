@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Link , useNavigate } from "react-router-dom";
 import { Button } from "./components/button";
+import Navbar from "./Navbar";
 import { Card, CardContent } from "./components/card";
 import { motion } from "framer-motion";
 import AOS from "aos";
@@ -54,46 +55,7 @@ const Home = () => {
 
   return (
     <div className="app-background">
-      <header className="app-header">
-        <div className="logo-wrapper">
-          <img src="/logo-Photoroom.png" alt = "aetheris "className="logo-image" />
-          <h1 className="logo-text">AETHERIS®</h1>
-        </div>
-	  	
-		<button
-		  className="menu-toggle"
-		  onClick={() => setMenuOpen(!menuOpen)}
-		>
-		  ☰
-</button>
-	  
-        <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
-          <Button className="ghost">Solutions</Button>
-			<Link to="/about">
-		  		<Button className="ghost">About</Button>
-			</Link>
-          <Link to ="/contact-us">
-            <Button className="ghost">Contact</Button>
-          </Link>
-           
-           {user ? (
-          <>
-            <span className="user-email">{user.email}</span>
-            <Button className="ghost" onClick={handleLogout}>Logout</Button>
-          </>
-        ) : (
-          <>
-            <Link to="/register">
-              <Button className="ghost">Register</Button>
-            </Link>
-            <Link to="/login">
-              <Button className="ghost">Login</Button>
-			</Link>
-          </>
-        )}
-
-        </nav>
-      </header>
+      <Navbar user={user} onLogout={handleLogout} />
 
       <section className="video-section" data-aos="fade-up">
         <motion.video
@@ -207,53 +169,7 @@ const Services = () =>{
 
   return(
   <div className="app-background">
-      <header className="app-header">
-        <div className="logo-wrapper">
-          <img src="/logo-Photoroom.png" alt = "aetheris "className="logo-image" />
-          <h1 className="logo-text">AETHERIS®</h1>
-        </div>
-	  	<button
-		  className="menu-toggle"
-		  onClick={() => setMenuOpen(!menuOpen)}
-		>
-		  ☰
-</button>
-	  
-         <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
-          <Link to ="/home">
-            <Button className="ghost">Home</Button>
-          </Link>
-          <Button className="ghost">Solutions</Button>
-			<Link to="/about">
-		  		<Button className="ghost">About</Button>
-		  </Link>
-          <Link to ="/contact-us">
-            <Button className="ghost">Contact</Button>
-          </Link>
-          
-           {user ? (
-          <>
-            <span className="user-email">{user.email}</span>
-            <Button className="ghost" onClick={handleLogout}>Logout</Button>
-          </>
-        ) : (
-          <>
-            <Link to="/register">
-              <Button className="ghost">Register</Button>
-            </Link>
-            <Link to="/login">
-              <Button className="ghost">Login</Button>
-            </Link>
-				<Link to="/about">
-		  		<Button className="ghost">About</Button>
-			</Link>
-          </>
-        )}
-        </nav>
-      </header>
-    
-    
-
+     <Navbar user={user} onLogout={handleLogout} />
     <div className="services-page">
       <h1 align="center" data-aos="fade-in">Services</h1>
     <Card className="card" data-aos="fade-right" data-aos-delay="200">
@@ -341,38 +257,7 @@ const About = () => {
   return (
     <div className="app-background">
       {/* HEADER */}
-      <header className="app-header">
-        <div className="logo-wrapper">
-          <img src="/logo-Photoroom.png" alt="aetheris" className="logo-image" />
-          <h1 className="logo-text">AETHERIS®</h1>
-        </div>
-		<button
-		  className="menu-toggle"
-		  onClick={() => setMenuOpen(!menuOpen)}
-		>
-		  ☰
-</button>
-	  
-        <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
-          <Link to="/home"><Button className="ghost">Home</Button></Link>
-          <Link to="/services-page"><Button className="ghost">Services</Button></Link>
-          <Link to="/contact-us"><Button className="ghost">Contact</Button></Link>
-	  	  <Link to="/about"><Button className="ghost">About</Button></Link>
-
-          {user ? (
-            <>
-              <span className="user-email">{user.email}</span>
-              <Button className="ghost" onClick={handleLogout}>Logout</Button>
-            </>
-          ) : (
-            <>
-              <Link to="/register"><Button className="ghost">Register</Button></Link>
-              <Link to="/login"><Button className="ghost">Login</Button></Link>
-            </>
-          )}
-        </nav>
-      </header>
-
+      <Navbar user={user} onLogout={handleLogout} />
       {/* ABOUT COMPANY */}
       <section className="section" data-aos="fade-up">
         <h2 align="center">About AETHERIS®</h2>
@@ -459,49 +344,7 @@ const ContactUs = () =>{
   return(
 
     <div className="app-background">
-      <header className="app-header">
-        <div className="logo-wrapper">
-          <img src="/logo-Photoroom.png" alt = "aetheris "className="logo-image" />
-          <h1 className="logo-text">AETHERIS®</h1>
-        </div>
-	  	<button
-		  className="menu-toggle"
-		  onClick={() => setMenuOpen(!menuOpen)}
-		>
-		  ☰
-</button>
-	  
-         <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
-          <Link to ="/home">
-            <Button className="ghost">Home</Button>
-          </Link>
-          <Button className="ghost">Solutions</Button>
-				<Link to="/about">
-		  		<Button className="ghost">About</Button>
-			</Link>
-          <Link to ="/contact-us">
-            <Button className="ghost">Contact</Button>
-          </Link>
-	
-           
-           {user ? (
-          <>
-            <span className="user-email">{user.email}</span>
-            <Button className="ghost" onClick={handleLogout}>Logout</Button>
-          </>
-        ) : (
-          <>
-            <Link to="/register">
-              <Button className="ghost">Register</Button>
-            </Link>
-            <Link to="/login">
-              <Button className="ghost">Login</Button>
-            </Link>
-
-          </>
-        )}
-        </nav>
-      </header>
+      <Navbar user={user} onLogout={handleLogout} />
 
     
    <div className="contact-page" data-aos="fade-up">
