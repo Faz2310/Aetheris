@@ -1,4 +1,4 @@
-		import React, { useState,useEffect } from "react";
+import React, { useState,useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Link , useNavigate } from "react-router-dom";
 import { Button } from "./components/button";
 import { Card, CardContent } from "./components/card";
@@ -27,6 +27,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const [menuOpen, setMenuOpen] = useState(false);
 
 console.log("Firebase app initialized:", app.name);  // Should log "[DEFAULT]"
 console.log("Firebase auth service:", auth.app.name);
@@ -58,7 +59,15 @@ const Home = () => {
           <img src="/logo-Photoroom.png" alt = "aetheris "className="logo-image" />
           <h1 className="logo-text">AETHERIS®</h1>
         </div>
-        <nav className="nav-links">
+	  	
+		<button
+		  className="menu-toggle"
+		  onClick={() => setMenuOpen(!menuOpen)}
+		>
+		  ☰
+</button>
+	  
+        <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
           <Button className="ghost">Solutions</Button>
 			<Link to="/about">
 		  		<Button className="ghost">About</Button>
@@ -203,7 +212,14 @@ const Services = () =>{
           <img src="/logo-Photoroom.png" alt = "aetheris "className="logo-image" />
           <h1 className="logo-text">AETHERIS®</h1>
         </div>
-         <nav className="nav-links">
+	  	<button
+		  className="menu-toggle"
+		  onClick={() => setMenuOpen(!menuOpen)}
+		>
+		  ☰
+</button>
+	  
+         <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
           <Link to ="/home">
             <Button className="ghost">Home</Button>
           </Link>
@@ -330,8 +346,14 @@ const About = () => {
           <img src="/logo-Photoroom.png" alt="aetheris" className="logo-image" />
           <h1 className="logo-text">AETHERIS®</h1>
         </div>
-
-        <nav className="nav-links">
+		<button
+		  className="menu-toggle"
+		  onClick={() => setMenuOpen(!menuOpen)}
+		>
+		  ☰
+</button>
+	  
+        <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
           <Link to="/home"><Button className="ghost">Home</Button></Link>
           <Link to="/services-page"><Button className="ghost">Services</Button></Link>
           <Link to="/contact-us"><Button className="ghost">Contact</Button></Link>
@@ -442,7 +464,14 @@ const ContactUs = () =>{
           <img src="/logo-Photoroom.png" alt = "aetheris "className="logo-image" />
           <h1 className="logo-text">AETHERIS®</h1>
         </div>
-         <nav className="nav-links">
+	  	<button
+		  className="menu-toggle"
+		  onClick={() => setMenuOpen(!menuOpen)}
+		>
+		  ☰
+</button>
+	  
+         <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
           <Link to ="/home">
             <Button className="ghost">Home</Button>
           </Link>
