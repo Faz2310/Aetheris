@@ -28,7 +28,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const [menuOpen, setMenuOpen] = useState(false);
 
 console.log("Firebase app initialized:", app.name);  // Should log "[DEFAULT]"
 console.log("Firebase auth service:", auth.app.name);
