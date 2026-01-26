@@ -8,7 +8,7 @@ const Navbar = ({ user, onLogout }) => {
   return (
     <header className="app-header">
       <div className="logo-wrapper">
-        <img src="/logo.png" alt="aetheris" className="logo-image" />
+        <img src="/logo2.png" alt="aetheris" className="logo-image" />
         <h1 className="logo-text">AETHERIS®</h1>
       </div>
 
