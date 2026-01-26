@@ -84,6 +84,17 @@ const Home = () => {
           <Link to="/services-page">
           <Button className="default">Explore Our Services</Button>
           </Link>
+		  <Button
+  className="default"
+  onClick={() =>
+    window.open(
+      "https://forms.gle/ifZFq4RrDwx4MJvYA",
+      "_blank"
+    )
+  }
+>
+  JOIN NOW
+</Button>
         </motion.div>
       </section>
 
