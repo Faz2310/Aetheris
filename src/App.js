@@ -84,7 +84,7 @@ const Home = () => {
           <Link to="/services-page">
           <Button className="default">Explore Our Services</Button>
           </Link>
-		  <Button
+		  <button
   className="default"
   onClick={() =>
     window.open(
@@ -94,7 +94,7 @@ const Home = () => {
   }
 >
   JOIN NOW
-</Button>
+</button>
         </motion.div>
       </section>
 
