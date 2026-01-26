@@ -174,7 +174,7 @@ button.default {
   color: white;
   box-shadow: 0 4px 20px rgba(77, 77, 255, 0.3);
   position: relative;
-  padding: 5px;
+  padding: 20px 16px;
   overflow: hidden;
 }
 
